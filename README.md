@@ -20,3 +20,4 @@ If time permits, the project will be extended with a basic physics system and a 
 | Dhivakar | [cs25b023-collab](https://github.com/cs25b023-collab) | Member |
 | Ananya | [ananya-274](https://github.com/ananya-274) | Member |
 | Prajith | [EntangledEquity](https://github.com/EntangledEquity) | Member |
+| Sathwik | [ImagineLosing14](https://github.com/ImagineLosing14) | Member |
