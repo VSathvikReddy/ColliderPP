@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#pragma once
 
 struct PhysicalAttributes {
     float mass;
@@ -30,7 +32,7 @@ private:
     PhysicalAttributes attributes;
 
 public:
-    virtual ~PhysicsObject();
+    virtual ~PhysicsObject() = default;
 
     // virtual get.set;
     // apply force
