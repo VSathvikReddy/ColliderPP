@@ -6,9 +6,9 @@ private:
     sf::RenderWindow window;
 
     PhysicsEngine engine;
-    sf::Event event;
+
 public:
     PhySimulator(const std::string& address);
-    
-    void run();
+    string trim(string str);
+    void run(sf::RenderWindow& window);
 };
