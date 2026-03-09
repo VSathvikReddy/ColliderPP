@@ -32,7 +32,20 @@ bool circlecircleCollision(PhysicsObject* a, PhysicsObject* b){
 
 //*PhysicsEngine::collisionTable[0][0] = circlecircleCollision;
 
-void PhysicsEngine::addObject(std::unique_ptr<PhysicsObject> obj) {
+void PhysicsEngine::addCircle(float radius, ShapeID ID,
+  sf::Vector2f pos, sf::Vector2f vel, sf::Vector2f acc,
+  float angle, float ang_acc, float ang_vel, const PhysicalAttributes &attr, bool isStatic) {
+  std::unique_ptr<Circle> obj = new Circle(radius, pos);
+
+  obj->setPosition(pos);
+  obj->setVelocity(vel);
+  obj->setAcceleration(acc);
+  obj->setAngle(angle);
+  obj->setAngularAcceleration(ang_acc);
+  obj->setAngularVelocity(ang_vel);
+  obj->setAttributes(attr);
+  obj->setIsStatic(isStatic);
+
   objects.push_back(std::move(obj));
 }
 
@@ -53,5 +66,6 @@ void PhysicsEngine::draw(sf::RenderWindow& window) {
   for (auto& obj : objects) 
     obj->draw(window);
 }
+
       
   
