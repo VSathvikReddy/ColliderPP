@@ -1,5 +1,4 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include "physics_object.h"
@@ -21,5 +20,3 @@ public:
     float getWidth() const;
     float getBreadth() const;
 };
-
-#endif

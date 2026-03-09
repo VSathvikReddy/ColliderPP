@@ -1,5 +1,4 @@
-#ifndef PHYSICS_OBJECT_H
-#define PHYSICS_OBJECT_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include "physics_attributes.h"
@@ -59,5 +58,3 @@ public:
     virtual void update(sf::Time dt);
     virtual void draw(sf::RenderWindow& window) = 0;
 };
-
-#endif

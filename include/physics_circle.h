@@ -1,6 +1,4 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
-
+#pragma once
 #include <SFML/Graphics.hpp>
 #include "physics_object.h"
 
@@ -22,4 +20,3 @@ public:
     const sf::FloatRect getGlobalBounds() const;
 };
 
-#endif

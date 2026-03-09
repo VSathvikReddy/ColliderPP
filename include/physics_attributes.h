@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 
 struct PhysicalAttributes {
@@ -8,9 +9,6 @@ struct PhysicalAttributes {
 
     static const PhysicalAttributes DEFAULT_PHYSICS_ATTRIBUTES;
 };
-
-
-PhysicalAttributes DEFAULT_PHYSICS_OBJECT = PhysicalAttributes{1.0f,1.0f,1.0f,sf::Color::White};
 
 enum class ShapeID{
     NULL_SHAPE,
