@@ -1,0 +1,11 @@
+# Keybind configuration for the program
+Move Up: W
+Move Down: S
+Move Left: A
+Move Right: D
+Zoom In: Q
+Zoom Out: E
+Escape: Escape
+Shift: LShift
+Left Click: Left Click
+Right Click: Right Click

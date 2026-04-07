@@ -9,10 +9,10 @@ OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
 INCS := $(shell find $(INC_DIR) -type d)
-INC_FLAGS := $(addprefix -I,$(INCS))
+INC_FLAGS := -ISFML/include $(addprefix -I,$(INCS))
 
 CPPFLAGS := $(INC_FLAGS) -MMD -MP
-LDFLAGS := -lsfml-graphics -lsfml-window -lsfml-system
+LDFLAGS := -LSFML/lib -lsfml-graphics -lsfml-window -lsfml-system
 CXX := g++
 
 # Final executable
