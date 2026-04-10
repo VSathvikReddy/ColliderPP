@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "jobject.h"
 
 struct PhysicalAttributes {
     float mass;
@@ -10,6 +11,7 @@ struct PhysicalAttributes {
     bool is_real = true;
 
     static PhysicalAttributes DEFAULT_PHYSICS_ATTRIBUTE();
+    static PhysicalAttributes FROM_JSON(const JObject& config_json);
 };
 
 

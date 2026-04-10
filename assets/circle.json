@@ -1,0 +1,14 @@
+{
+    "velocity" : [20,20],
+    "acceleration" : [0,0],
+    "angle" : 20.0,
+    "angularVelocity" : 2.0,
+    "angularAcceleration" : 0.0,
+    "position" : [400 , 400],
+    "mass" : 0.5,
+    "angularMass" : 0,
+    "restitution" : 0.2,
+    "color" : "blue",
+    "is_static" : true,
+    "is_real" : true
+}

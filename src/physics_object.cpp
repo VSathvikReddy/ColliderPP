@@ -2,7 +2,15 @@
 
 
 //constructor
-PhysicsObject::PhysicsObject(ShapeID id, const sf::Vector2f& pos,const PhysicalAttributes& attr): position(pos),attributes(attr),ID(id){
+PhysicsObject::PhysicsObject(ShapeID id, const JObject& config_json):ID(id){
+    
+    position            = sf::Vector2f(float(config_json["position"][0]), float(config_json["position"][1]));
+    velocity            = sf::Vector2f(float(config_json["velocity"][0]), float(config_json["velocity"][1]));
+    acceleration        = sf::Vector2f(float(config_json["acceleration"][0]), float(config_json["acceleration"][1]));
+    angle               = float(config_json["angle"]);
+    angularVelocity     = float(config_json["angularVelocity"]);
+    angularAcceleration = float(config_json["angularAcceleration"]);
+
 }
 //destructor
 PhysicsObject::~PhysicsObject() = default;

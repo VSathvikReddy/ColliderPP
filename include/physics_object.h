@@ -18,7 +18,11 @@ private:
 
 public:
     //Constructor
-    PhysicsObject(ShapeID id, const sf::Vector2f& pos, const PhysicalAttributes& attr = PhysicalAttributes::DEFAULT_PHYSICS_ATTRIBUTE());
+    PhysicsObject(ShapeID id, const JObject& config_json, const sf::Vector2f& pos, const PhysicalAttributes& attr = PhysicalAttributes::DEFAULT_PHYSICS_ATTRIBUTE());
+
+    
+
+
 
     virtual ~PhysicsObject();
 
