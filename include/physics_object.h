@@ -48,8 +48,8 @@ public:
 
     // apply force
     // apply impulse
-    void applyForce(const sf::Vector2f& force);
-    void applyImpulse(const sf::Vector2f& impulse);
+    void applyForce(const sf::Vector2f& force, const sf::Vector2f& position);
+    void applyImpulse(const sf::Vector2f& impulse, const sf::Vector2f& position);
 
     virtual const sf::FloatRect getGlobalBounds() const =0;
 
