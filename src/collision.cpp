@@ -1,7 +1,7 @@
 #include "collision.h"
 
 #include <SFML/Graphics.hpp>
-
+#include <cmath>
 #include "physics_circle.h"
 
 inline float dot(sf::Vector2f a, sf::Vector2f b) {
@@ -21,14 +21,15 @@ bool Collider::CheckCollision(PhysicsObject* a0, PhysicsObject* b0, sf::Vector2f
     sf::Vector2f p3 = p2 - p1;
 
     float dist_squared = lengthSquared(p3);
-    direction = p3;
+    p3 = p3/float(sqrt(dist_squared));
+    direction = p3*(float(sqrt(dist_squared)-r1+r2));
     if (dist_squared <= (r1 + r2) * (r1 + r2)) {
         return true;
     }
     return false;
 }
 
-static bool ResolveBoundaryCollision(PhysicsObject* a0, sf::RenderWindow& window) {
+bool Collider::ResolveBoundaryCollision(PhysicsObject* a0, sf::RenderWindow& window) {
     Circle* a = dynamic_cast<Circle*>(a0);
     float r = a->getRadius();
     sf::Vector2f p = a->getPosition();
@@ -63,14 +64,14 @@ static bool ResolveBoundaryCollision(PhysicsObject* a0, sf::RenderWindow& window
     return collided;
 }
 
-static void move(PhysicsObject* a, PhysicsObject* b, sf::Vector2f& direction) {
+void Collider::move(PhysicsObject* a, PhysicsObject* b, sf::Vector2f& direction) {
     float ma = a->getAttributes().mass;
     float mb = b->getAttributes().mass;
     b->setPosition(b->getPosition() + (direction * (ma / (ma + mb))));
     a->setPosition(a->getPosition() - (direction * (mb / (ma + mb))));
 }
 
-static void changeVelocity(PhysicsObject* a, PhysicsObject* b, sf::Vector2f& direction) {
+void Collider::changeVelocity(PhysicsObject* a, PhysicsObject* b, sf::Vector2f& direction) {
     sf::Vector2f p1 = a->getPosition();
     sf::Vector2f p2 = b->getPosition();
     sf::Vector2f v1 = a->getVelocity();

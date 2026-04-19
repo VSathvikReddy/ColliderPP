@@ -13,8 +13,8 @@ void PhysicsEngine::update(sf::Time dt, sf::RenderWindow& window) {
             sf::Vector2f dir;
             if(!Collider::CheckCollision(objects[i],objects[j],dir)){
                 continue;
-            }Collider::move(objects[i],objects[j]);
-            Collider::changeVelocity(objects[i],objects[j]);
+            }Collider::move(objects[i],objects[j],dir);
+            Collider::changeVelocity(objects[i],objects[j],dir);
         }
     }
     for (size_t i = 0; i < objects.size(); i++) {
