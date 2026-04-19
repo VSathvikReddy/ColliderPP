@@ -57,6 +57,8 @@ public:
     operator std::vector<JObject>() const;
     operator std::unordered_map<std::string, JObject>() const;
 
+    std::string to_string() const;
+
     const JObject& operator[](int idx) const;
     const JObject& operator[](const char* key) const;
     const JObject& operator[](const std::string& key) const;

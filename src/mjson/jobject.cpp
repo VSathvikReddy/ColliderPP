@@ -1,6 +1,8 @@
 #include "jobject.h"
 #include "lexer.h"
 #include "parser.h"
+#include <string>
+
 
 const char* jtype_to_string(JType type) {
     switch (type) {
@@ -136,3 +138,55 @@ const JObject& JObject::operator[](const char* key) const{
     return this->operator[](std::string(key));
 }
 
+std::string JObject::to_string() const {
+    switch (type) {
+        
+        case JType::Null:
+            return "null";
+
+        case JType::Bool:
+            return data.bvalue ? "true" : "false";
+
+        case JType::Int:
+            return std::to_string(data.ivalue);
+
+        case JType::Float:
+            return std::to_string(data.fvalue);
+
+        case JType::String:
+            return "\"" + *data.svalue + "\"";
+
+        case JType::List: {
+            bool is_first = true;
+            std::string result = "[";
+            for (const JObject& item : *data.lvalues) {
+                if (is_first) {
+                    result += item.to_string();
+                    is_first = false;
+                }
+                else {
+                    result += "," + item.to_string();
+                }
+            }
+            result += "]";
+            return result;
+        }
+
+        case JType::Dict: {
+            bool is_first = true;
+            std::string result = "{";
+            for (const auto& item : *data.mvalues) {
+                if (is_first) {
+                    result += "\"" + item.first + "\":" + item.second.to_string();
+                    is_first = false;
+                }
+                else {
+                    result += ",\"" + item.first + "\":" + item.second.to_string();
+                }
+            }
+            result += "}";
+            return result;
+        }
+    }
+    return "";
+}
