@@ -26,6 +26,9 @@ void PhySimulator::process_event(){
     }else if(event.type ==sf::Event::KeyPressed){
         if (event.key.code == sf::Keyboard::Escape)
             window.close();
+
+        if(event.key.code == sf::Keyboard::P)
+            paused = !paused;
     }
     else if(event.type == sf::Event::Resized){
         window.setView(sf::View(sf::FloatRect(0, 0,
@@ -60,9 +63,13 @@ void PhySimulator::run(){
         while (window.pollEvent(event)){
             process_event();
         }
-        
-        start_frame();
-        update();
+
+        if(!paused){
+            start_frame();
+            update();
+        }else{
+            clock.restart();
+        }
         render();
     }
 }
@@ -70,3 +77,17 @@ void PhySimulator::run(){
 void PhySimulator::update(){
     engine.update(dt , window);
 }
+
+// PhySimulator::~PhySimulator(){
+//     std::vector<JObject> circlelist;
+
+//     for(auto* circle : engine.getObjects()){
+//         circlelist.push_back(circle);
+//     }
+
+//     JObject circledata(circlelist);
+//     std::string text = circledata.to_string();
+
+//     std::fstream file("physics_circle.json");
+//     file << text;
+// }
