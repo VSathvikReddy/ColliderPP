@@ -16,7 +16,7 @@ PhySimulator::PhySimulator(const std::string& config_file_address){
 
     JObject circle_data("assets/physics_circle.json");
     for(const JObject& circle : std::vector<JObject>(circle_data)){
-        engine.addObject(new Circle(circle));
+        engine.addObject(std::make_unique<Circle>(circle));
     }
 }
 
