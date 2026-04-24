@@ -16,6 +16,8 @@ private:
 
     PhysicsEngine engine;
 
+    bool paused = false;
+
     void process_event();
     void start_frame();
 
@@ -23,6 +25,6 @@ private:
     void update();
 public:
     PhySimulator(const std::string& config_file_address);
-
+    //~PhySimulator();
     void run();
 };
