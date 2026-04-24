@@ -1,5 +1,5 @@
 #include "collision.h"
-
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include "physics_circle.h"
